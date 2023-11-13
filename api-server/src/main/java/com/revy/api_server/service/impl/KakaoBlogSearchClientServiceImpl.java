@@ -35,6 +35,12 @@ public class KakaoBlogSearchClientServiceImpl implements BlogSearchClientService
         return mapBlogSearchClientResultData(kakaoBlogSearchRes, page);
     }
 
+    /**
+     * 카카오 API 블로그 검색결과를 BlogSearchResultData로 맵핑한다.
+     * @param kakaoBlogSearchRes - 카카오 API 블로그 검색 결과
+     * @param requestPage - 요청 page 사이즈
+     * @return BlogSearchResultData
+     */
     private BlogSearchResultData mapBlogSearchClientResultData(KakaoBlogSearchRes kakaoBlogSearchRes, int requestPage) {
         return BlogSearchResultData
                 .builder()

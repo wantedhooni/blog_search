@@ -11,7 +11,7 @@
 - - 분산락 필요 - 동시성 방지
 - - 캐싱 필요할까?
 
-- 대용량 트래픽 치러 방안
+- 대용량 트래픽 처리 방안
 - JAVA 21이니 가상 쓰레드 사용 - 관리힘든 WebFlux 우회
 - -  https://spring.io/blog/2022/10/11/embracing-virtual-threads
 

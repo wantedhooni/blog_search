@@ -1,0 +1,15 @@
+---
+spring.config.activate.on-profile: local
+
+kakao:
+  api:
+    url: https://dapi.kakao.com
+    # TODO-REVY -> 나중에는 자바 실행 명령어에 속성으로 추가해주자.
+    # 키값 남기는거 별로 좋지는 않은듯
+    restApiKey: cfbc099a0c16f83522e329e08aa94539
+
+naver:
+  api:
+    url: https://openapi.naver.com
+    client-id: 1C4V9j5UotOB5mNQ0BKA
+    client-secret: 5zROow2LcY

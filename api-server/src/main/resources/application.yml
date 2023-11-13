@@ -1,0 +1,15 @@
+spring.profiles.active: local
+spring:
+  profiles:
+    include:
+      - domain
+      - blog-search-client
+
+---
+spring.config.activate.on-profile: local
+server:
+  port: 8080
+logging:
+  level:
+    com.revy: debug
+

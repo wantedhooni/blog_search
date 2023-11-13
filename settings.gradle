@@ -1,0 +1,8 @@
+rootProject.name = 'blog_search'
+
+include(
+        ':core',
+        ':domain',
+        ':3rd-api-client',
+        ':api-server',
+)

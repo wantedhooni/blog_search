@@ -27,7 +27,8 @@ public class BlogSearchServiceImpl implements BlogSearchService {
     public BlogSearchResultData searchBlogs(BlogSearchConditionData blogSearchConditionData) {
         Assert.notNull(blogSearchConditionData, "blogSearchConditionData must be not null.");
         log.debug("blogSearchConditionData: {}", blogSearchConditionData);
-        // BlogSearchClientType Enum 순서대로 동작을 수행한다.
+        // BlogSearchClientType Enum 순서가 서비스 호출 우선순위이다.
+        // ENUM과 서비스 추가되면 자동적으로 로직이 적용된다.
         for (BlogSearchClientType clientType : BlogSearchClientType.values()) {
             try {
                 return blogSearchClientServiceProvider
@@ -40,6 +41,6 @@ public class BlogSearchServiceImpl implements BlogSearchService {
                 log.warn("", e);
             }
         }
-        throw new InternalServerErrorException("서비스를 이용할수 없습니다. 잠시후에 이용해주세요.");
+        throw new InternalServerErrorException("블로그 검색에 실패하였습니다. 잠시후에 이용해주세요.");
     }
 }

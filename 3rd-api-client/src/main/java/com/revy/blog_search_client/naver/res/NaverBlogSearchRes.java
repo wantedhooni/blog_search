@@ -2,16 +2,17 @@ package com.revy.blog_search_client.naver.res;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by Revy on 2023.11.13
+ * 네이버 블로그 검색 API Response
  */
 @Getter
 @NoArgsConstructor
@@ -19,16 +20,13 @@ import java.util.List;
 public class NaverBlogSearchRes {
 
     @JsonProperty("total")
-    private Integer total;
-
+    private int total;
     @JsonProperty("start")
-    private Integer start;
-
+    private int start;
     @JsonProperty("display")
-    private Integer display;
-
+    private int display;
     @JsonProperty("items")
-    private List<Item> items;
+    private List<Item> items = Collections.emptyList();
 
     @Getter
     @NoArgsConstructor

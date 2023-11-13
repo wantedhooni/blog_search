@@ -11,28 +11,30 @@ import java.util.List;
 
 /**
  * Created by Revy on 2023.11.12
+ * 블로그 검색 서비스 결과 DTO
  */
 @Getter
 @NoArgsConstructor
 @ToString
 public class BlogSearchResultData {
-    private List<DocumentData> documents = Collections.EMPTY_LIST;
+
     private int currentPage;
     private int totalCount;
     private int pageableCount;
     private int size;
     private boolean first;
     private boolean last;
+    private List<DocumentData> documents = Collections.emptyList();
 
     @Builder
-    public BlogSearchResultData(List<DocumentData> documents, int currentPage, int totalCount, int pageableCount, int size, boolean first, boolean last) {
-        this.documents = documents;
+    public BlogSearchResultData(int currentPage, int totalCount, int pageableCount, int size, boolean first, boolean last, List<DocumentData> documents) {
         this.currentPage = currentPage;
         this.totalCount = totalCount;
         this.pageableCount = pageableCount;
         this.size = size;
         this.first = first;
         this.last = last;
+        this.documents = documents;
     }
 
     @Getter

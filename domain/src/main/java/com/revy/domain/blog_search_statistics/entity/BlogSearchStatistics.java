@@ -9,14 +9,16 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
+
 /**
  * Created by Revy on 2023.11.12
  * 블로그 검색 통계 테이블
  */
 
-
 @Entity
-@Table(name = "blog_Search_statistics")
+@Table(name = "blog_Search_statistics",
+        indexes = { @Index(name= "IDX_COUNT_MODIFY_AT", columnList = "count, modify_at")}
+)
 @Getter
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor

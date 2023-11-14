@@ -4,5 +4,4 @@ dependencies {
     implementation 'com.github.codemonstur:embedded-redis:1.0.0'
     // https://mvnrepository.com/artifact/org.redisson/redisson
     implementation 'org.redisson:redisson:3.24.3'
-    implementation 'org.redisson:redisson-spring-boot-starter:3.18.0'
 }

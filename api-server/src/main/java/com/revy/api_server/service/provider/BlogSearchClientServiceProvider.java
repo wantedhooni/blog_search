@@ -29,7 +29,7 @@ public class BlogSearchClientServiceProvider {
 
     public BlogSearchClientService getBlogSearchClientService(BlogSearchClientType blogSearchClientType) {
         Assert.notNull(blogSearchClientType, "blogSearchClientType must be not null.");
-        return Optional.of(blogSearchClientServiceMap.get(blogSearchClientType))
+        return Optional.ofNullable(blogSearchClientServiceMap.get(blogSearchClientType))
                 .orElseThrow(() -> new NotFoundServiceException("%s 타입의 서비스가 존재하지 않습니다."));
     }
 

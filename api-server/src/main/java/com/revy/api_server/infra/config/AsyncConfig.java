@@ -11,6 +11,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 
+/**
+ * Created by Revy on 2023.11.14
+ * 비동기 쓰레드 설정
+ */
 @EnableAsync
 @Configuration
 public class AsyncConfig {

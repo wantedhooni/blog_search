@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Created by Revy on 2023.11.12
+ * 인기 검색어 결과 Response
  */
 @Getter
 @NoArgsConstructor

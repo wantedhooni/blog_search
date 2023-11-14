@@ -11,5 +11,10 @@ import java.util.Optional;
  */
 public interface BlogSearchStatisticsRepository extends JpaRepository<BlogSearchStatistics, String> {
 
+    /**
+     * 검색어로 BlogSearchStatistics를 검색한다.
+     * @param keyword - 검색어(eq)
+     * @return
+     */
     Optional<BlogSearchStatistics> findByKeyword(String keyword);
 }

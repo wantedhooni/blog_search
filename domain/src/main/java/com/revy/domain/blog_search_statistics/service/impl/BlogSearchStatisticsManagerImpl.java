@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by Revy on 2023.11.12
+ * 블로그 검색 통계 Manager 구현체
  */
 
 @Slf4j

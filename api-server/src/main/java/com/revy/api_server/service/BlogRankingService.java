@@ -1,6 +1,6 @@
 package com.revy.api_server.service;
 
-import com.revy.api_server.service.data.PopulaSearchesResultData;
+import com.revy.api_server.service.data.PopularSearchesResultData;
 import org.springframework.scheduling.annotation.Async;
 
 import java.util.List;
@@ -19,5 +19,10 @@ public interface BlogRankingService {
     @Async
     void increaseCountAsync(String keyword);
 
-    List<PopulaSearchesResultData> getPopularSearches(int size);
+    /**
+     * 인기 검색어 순위를 반환한다.
+     * @param size - 검색 사이즈
+     * @return List<PopularSearchesResultData>
+     */
+    List<PopularSearchesResultData> getPopularSearches(int size);
 }

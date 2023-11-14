@@ -5,6 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Created by Revy on 2023.11.13
+ * Redis Properties
  */
 
 @Getter

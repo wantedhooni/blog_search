@@ -4,6 +4,7 @@ import lombok.Getter;
 
 /**
  * Created by Revy on 2023.11.13
+ * 블로그검색 클라이언트 타입
  */
 @Getter
 public enum BlogSearchClientType {

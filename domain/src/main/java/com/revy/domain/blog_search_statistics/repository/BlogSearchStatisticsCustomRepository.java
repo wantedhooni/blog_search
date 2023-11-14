@@ -21,6 +21,10 @@ public class BlogSearchStatisticsCustomRepository {
     private final JPAQueryFactory jpaQueryFactory;
     private static final QBlogSearchStatistics BLOG_SEARCH_STATISTICS = QBlogSearchStatistics.blogSearchStatistics;
 
+    /**
+     * 검색 키워드의 카운터를 1 증가하는 쿼리
+     * @param keyword - 키워드
+     */
     public void increaseCount(String keyword) {
         jpaQueryFactory
                 .update(BLOG_SEARCH_STATISTICS)
@@ -30,6 +34,11 @@ public class BlogSearchStatisticsCustomRepository {
                 .execute();
     }
 
+    /**
+     * 인기검색어를 검색한다.
+     * @param size
+     * @return BlogSearchStatistics
+     */
     public List<BlogSearchStatistics> findPopularSearches(int size) {
         return jpaQueryFactory
                 .selectFrom(BLOG_SEARCH_STATISTICS)

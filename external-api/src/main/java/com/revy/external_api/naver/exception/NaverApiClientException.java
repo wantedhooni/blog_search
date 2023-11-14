@@ -4,6 +4,7 @@ import lombok.Getter;
 
 /**
  * Created by Revy on 2023.11.14
+ * 네이버 API Client Exception
  */
 @Getter
 public class NaverApiClientException extends RuntimeException {

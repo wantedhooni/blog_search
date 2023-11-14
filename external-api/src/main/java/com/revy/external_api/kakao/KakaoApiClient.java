@@ -14,6 +14,7 @@ import reactor.core.publisher.Mono;
 
 /**
  * Created by Revy on 2023.11.13
+ * 카카오 API 호출 Client
  */
 
 @Slf4j

@@ -1,5 +1,6 @@
 package com.revy.api_server.endpoint.req;
 
+
 import com.revy.core.enums.blog.BlogSort;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -8,6 +9,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+/**
+ * Created by Revy on 2023.11.12
+ * 블로그 검색 Request
+ */
 
 @Getter
 @Setter

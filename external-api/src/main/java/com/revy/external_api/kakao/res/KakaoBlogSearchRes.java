@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by Revy on 2023.11.13
+ * 카카오 블로그 검색 결과 Response
  */
 
 @Getter

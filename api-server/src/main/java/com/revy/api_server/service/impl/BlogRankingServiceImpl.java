@@ -1,7 +1,7 @@
 package com.revy.api_server.service.impl;
 
 import com.revy.api_server.service.BlogRankingService;
-import com.revy.api_server.service.data.PopulaSearchesResultData;
+import com.revy.api_server.service.data.PopularSearchesResultData;
 import com.revy.domain.blog_search_statistics.entity.BlogSearchStatistics;
 import com.revy.domain.blog_search_statistics.service.BlogSearchStatisticsManager;
 import com.revy.domain.blog_search_statistics.service.BlogSearchStatisticsReader;
@@ -34,13 +34,13 @@ public class BlogRankingServiceImpl implements BlogRankingService {
     }
 
     @Override
-    public List<PopulaSearchesResultData> getPopularSearches(int size) {
+    public List<PopularSearchesResultData> getPopularSearches(int size) {
         List<BlogSearchStatistics> blogSearchStatisticsList = blogSearchStatisticsReader.getPopularSearches(size);
-        List<PopulaSearchesResultData> result = new ArrayList<>();
+        List<PopularSearchesResultData> result = new ArrayList<>();
 
         for (int i = 0; i < blogSearchStatisticsList.size(); i++) {
             BlogSearchStatistics blogSearchStatistics = blogSearchStatisticsList.get(i);
-            result.add(new PopulaSearchesResultData(i + 1, blogSearchStatistics.getKeyword(), blogSearchStatistics.getCount()));
+            result.add(new PopularSearchesResultData(i + 1, blogSearchStatistics.getKeyword(), blogSearchStatistics.getCount()));
         }
         return result;
     }

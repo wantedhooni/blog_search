@@ -1,7 +1,7 @@
 package com.revy.api_server.endpoint;
 
 import com.revy.api_server.service.BlogRankingService;
-import com.revy.api_server.service.data.PopulaSearchesResultData;
+import com.revy.api_server.service.data.PopularSearchesResultData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -30,15 +30,15 @@ class BlogRankingApiTest {
     @MockBean
     private BlogRankingService blogRankingService;
 
-    private List<PopulaSearchesResultData> blogSearchResultData;
+    private List<PopularSearchesResultData> blogSearchResultData;
 
     private final int size = 10;
 
     @BeforeEach
     void setUp() {
-        List<PopulaSearchesResultData> populaSearchesResultDataList = new ArrayList<>();
+        List<PopularSearchesResultData> populaSearchesResultDataList = new ArrayList<>();
         for (int i = 1; i <= size; i++) {
-            populaSearchesResultDataList.add(new PopulaSearchesResultData(i, "Test " + i, 100 - i));
+            populaSearchesResultDataList.add(new PopularSearchesResultData(i, "Test " + i, 100 - i));
         }
         blogSearchResultData = populaSearchesResultDataList;
     }

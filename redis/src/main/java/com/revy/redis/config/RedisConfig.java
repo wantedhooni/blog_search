@@ -22,7 +22,6 @@ public class RedisConfig {
     @Bean(destroyMethod = "stop")
     public RedisServer redisServer(RedisProperties redisProperties) throws IOException {
         RedisServer redisServer = new RedisServer(redisProperties.getPort());
-
         redisServer.start();
         return redisServer;
     }

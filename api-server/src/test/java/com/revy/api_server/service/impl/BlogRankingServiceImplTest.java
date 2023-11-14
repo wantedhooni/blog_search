@@ -1,6 +1,6 @@
 package com.revy.api_server.service.impl;
 
-import com.revy.api_server.service.data.PopulaSearchesResultData;
+import com.revy.api_server.service.data.PopularSearchesResultData;
 import com.revy.domain.blog_search_statistics.entity.BlogSearchStatistics;
 import com.revy.domain.blog_search_statistics.service.BlogSearchStatisticsReader;
 import org.junit.jupiter.api.BeforeEach;
@@ -48,7 +48,7 @@ class BlogRankingServiceImplTest {
         Mockito.when(blogSearchStatisticsReader.getPopularSearches(size)).thenReturn(mockBlogSearchStatistics);
 
         // when
-        List<PopulaSearchesResultData> popularSearches = blogRankingService.getPopularSearches(size);
+        List<PopularSearchesResultData> popularSearches = blogRankingService.getPopularSearches(size);
 
         // then
         assertFalse(popularSearches.isEmpty());

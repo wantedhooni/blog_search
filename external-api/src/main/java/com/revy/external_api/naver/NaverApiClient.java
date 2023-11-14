@@ -13,6 +13,7 @@ import reactor.core.publisher.Mono;
 
 /**
  * Created by Revy on 2023.11.13
+ * 네이버 API 호출 클라이언트
  */
 @Slf4j
 @Component

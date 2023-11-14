@@ -4,6 +4,7 @@ import lombok.Getter;
 
 /**
  * Created by Revy on 2023.11.14
+ * 에러 코드 
  */
 @Getter
 public enum ErrorCode {

@@ -7,6 +7,10 @@ import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Created by Revy on 2023.11.14
+ * Swagger 설정
+ */
 @OpenAPIDefinition(
         info = @Info(title = "블로그 검색 API",
                 description = "블로그 검색 API",

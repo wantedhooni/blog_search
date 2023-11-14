@@ -22,6 +22,7 @@ import java.util.Objects;
 
 /**
  * Created by Revy on 2023.11.14
+ * Api Exception Handler
  */
 @Slf4j
 @RestControllerAdvice

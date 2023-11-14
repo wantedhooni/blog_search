@@ -4,6 +4,7 @@ import lombok.Getter;
 
 /**
  * Created by Revy on 2023.11.14
+ * 카카오 Api Client Exception
  */
 @Getter
 public class KakaoApiClientException extends RuntimeException {

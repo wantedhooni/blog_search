@@ -15,6 +15,7 @@ import java.lang.reflect.Method;
 
 /**
  * Created by Revy on 2023.11.13
+ * 분산락 수행 AOP
  */
 
 @Aspect

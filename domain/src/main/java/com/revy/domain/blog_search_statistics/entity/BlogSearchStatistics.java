@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "blog_Search_statistics",
-        indexes = { @Index(name= "IDX_COUNT_MODIFY_AT", columnList = "count, modify_at")}
+        indexes = {@Index(name = "IDX_COUNT_MODIFY_AT", columnList = "count, modify_at")}
 )
 @Getter
 @EntityListeners(AuditingEntityListener.class)

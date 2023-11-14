@@ -4,6 +4,7 @@ import com.revy.core.exception.common.CommonException;
 
 /**
  * Created by Revy on 2023.11.13
+ * InternalServerErrorException
  */
 public class InternalServerErrorException extends CommonException {
     public InternalServerErrorException(String message) {

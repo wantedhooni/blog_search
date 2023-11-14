@@ -7,6 +7,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Created by Revy on 2023.11.15
+ * 인기 검색어 검색 Request
+ */
+
 @Getter
 @Setter
 @ToString

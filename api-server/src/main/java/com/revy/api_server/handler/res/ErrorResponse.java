@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Created by Revy on 2023.11.14
+ * Error Response
  */
 
 @Getter

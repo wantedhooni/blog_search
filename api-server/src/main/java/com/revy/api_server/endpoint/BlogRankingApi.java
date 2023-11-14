@@ -3,7 +3,7 @@ package com.revy.api_server.endpoint;
 import com.revy.api_server.endpoint.req.BlogRankingReq;
 import com.revy.api_server.endpoint.res.BlogPopularSearchesRes;
 import com.revy.api_server.service.BlogRankingService;
-import com.revy.api_server.service.data.PopulaSearchesResultData;
+import com.revy.api_server.service.data.PopularSearchesResultData;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +34,7 @@ public class BlogRankingApi {
     public BlogPopularSearchesRes getPopularSearches(@ModelAttribute @Valid BlogRankingReq blogRankingReq) {
 
 
-        List<PopulaSearchesResultData> resultList = blogRankingService.getPopularSearches(blogRankingReq.getSize());
+        List<PopularSearchesResultData> resultList = blogRankingService.getPopularSearches(blogRankingReq.getSize());
 
         return new BlogPopularSearchesRes(resultList
                 .stream()

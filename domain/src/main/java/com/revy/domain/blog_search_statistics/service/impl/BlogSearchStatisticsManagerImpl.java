@@ -30,12 +30,6 @@ public class BlogSearchStatisticsManagerImpl implements BlogSearchStatisticsMana
         blogSearchStatisticsCustomRepository.increaseCount(blogSearchStatistics.getKeyword());
     }
 
-    @Override
-    @Transactional(readOnly = true)
-    public List<BlogSearchStatistics> getPopularSearches(int size) {
-        return blogSearchStatisticsCustomRepository.findPopularSearches(size);
-    }
-
     private BlogSearchStatistics save(String keyword) {
         return blogSearchStatisticsRepository.save(new BlogSearchStatistics(keyword));
     }

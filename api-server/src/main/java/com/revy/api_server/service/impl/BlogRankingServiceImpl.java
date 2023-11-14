@@ -4,6 +4,7 @@ import com.revy.api_server.service.BlogRankingService;
 import com.revy.api_server.service.data.PopulaSearchesResultData;
 import com.revy.domain.blog_search_statistics.entity.BlogSearchStatistics;
 import com.revy.domain.blog_search_statistics.service.BlogSearchStatisticsManager;
+import com.revy.domain.blog_search_statistics.service.BlogSearchStatisticsReader;
 import com.revy.redis.aop.annotation.DistributedLock;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +23,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BlogRankingServiceImpl implements BlogRankingService {
 
+    private final BlogSearchStatisticsReader blogSearchStatisticsReader;
     private final BlogSearchStatisticsManager blogSearchStatisticsManager;
+
 
     @Override
     @DistributedLock(prefix = "BLOG_SEARCH", key = "KEYWORD", waitTime = 1000, leaseTime = 3000)
@@ -32,7 +35,7 @@ public class BlogRankingServiceImpl implements BlogRankingService {
 
     @Override
     public List<PopulaSearchesResultData> getPopularSearches(int size) {
-        List<BlogSearchStatistics> blogSearchStatisticsList = blogSearchStatisticsManager.getPopularSearches(size);
+        List<BlogSearchStatistics> blogSearchStatisticsList = blogSearchStatisticsReader.getPopularSearches(size);
         List<PopulaSearchesResultData> result = new ArrayList<>();
 
         for (int i = 0; i < blogSearchStatisticsList.size(); i++) {

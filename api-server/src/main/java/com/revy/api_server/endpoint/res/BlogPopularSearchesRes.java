@@ -22,7 +22,7 @@ public class BlogPopularSearchesRes {
 
     @Getter
     @NoArgsConstructor
-    public static class BlogPopularSearchesResData{
+    public static class BlogPopularSearchesResData {
         @JsonProperty("rank")
         private int rank;
         @JsonProperty("keyword")

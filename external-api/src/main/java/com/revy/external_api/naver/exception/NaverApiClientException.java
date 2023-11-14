@@ -8,8 +8,8 @@ import lombok.Getter;
 @Getter
 public class NaverApiClientException extends RuntimeException {
 
-    private String resErrorCode;
-    private String resErrorMessage;
+    private final String resErrorCode;
+    private final String resErrorMessage;
 
     public NaverApiClientException(String resErrorCode, String resErrorMessage) {
         super(resErrorMessage);

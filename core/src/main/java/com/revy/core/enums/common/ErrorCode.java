@@ -10,8 +10,8 @@ public enum ErrorCode {
     INTERNAL_SERVER_ERROR(500, "서버 내부에 오류가 발생하였습니다."),
     BAD_REQUEST(400, "잘못된 요청 정보입니다.");
 
-    private int code;
-    private String description;
+    private final int code;
+    private final String description;
 
     ErrorCode(int code, String description) {
         this.code = code;

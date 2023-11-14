@@ -37,8 +37,8 @@ class BlogSearchApiTest {
     private BlogRankingService blogRankingService;
 
     private BlogSearchResultData blogSearchResultData;
-    private int size = 10;
-    private int page = 1;
+    private final int size = 10;
+    private final int page = 1;
 
     @BeforeEach
     void setUp() {

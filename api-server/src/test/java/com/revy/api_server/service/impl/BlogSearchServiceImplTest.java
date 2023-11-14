@@ -41,9 +41,9 @@ class BlogSearchServiceImplTest {
 
     private BlogSearchResultData blogSearchResultData;
 
-    private String keyword = "Test";
-    private int size = 10;
-    private int page = 1;
+    private final String keyword = "Test";
+    private final int size = 10;
+    private final int page = 1;
 
     @BeforeEach
     void setUp() {

@@ -8,8 +8,8 @@ import lombok.Getter;
 @Getter
 public class KakaoApiClientException extends RuntimeException {
 
-    private String resErrorType;
-    private String resMessage;
+    private final String resErrorType;
+    private final String resMessage;
 
     public KakaoApiClientException(String resErrorType, String resMessage) {
         super(resMessage);

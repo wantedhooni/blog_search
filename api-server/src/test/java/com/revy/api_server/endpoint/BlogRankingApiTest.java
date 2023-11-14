@@ -32,7 +32,7 @@ class BlogRankingApiTest {
 
     private List<PopulaSearchesResultData> blogSearchResultData;
 
-    private int size = 10;
+    private final int size = 10;
 
     @BeforeEach
     void setUp() {

@@ -10,8 +10,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Getter
 @ConfigurationProperties("redis")
 public class RedisProperties {
-    private String host;
-    private Integer port;
+    private final String host;
+    private final Integer port;
 
     public RedisProperties(String host, Integer port) {
         this.host = host;

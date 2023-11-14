@@ -1,9 +1,7 @@
 package com.revy.api_server.endpoint.req;
 
-import com.revy.core.enums.blog.BlogSort;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

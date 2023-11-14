@@ -40,4 +40,11 @@ public class BlogSearchStatistics {
     public BlogSearchStatistics(String keyword) {
         this.keyword = keyword;
     }
+
+    public BlogSearchStatistics(String keyword, int count, LocalDateTime createdAt, LocalDateTime modifyAt) {
+        this.keyword = keyword;
+        this.count = count;
+        this.createdAt = createdAt;
+        this.modifyAt = modifyAt;
+    }
 }

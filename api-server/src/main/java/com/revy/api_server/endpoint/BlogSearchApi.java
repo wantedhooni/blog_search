@@ -43,9 +43,10 @@ public class BlogSearchApi {
                 .sort(req.getSort())
                 .build();
         log.info("[getBlogs] req:{}", req);
-        BlogSearchResultData result = blogSearchService.searchBlogs(condition);
-        BlogSearchResultRes res = mapBlogSearchResultRes(result);
-        return res;
+//        BlogSearchResultData result = blogSearchService.searchBlogs(condition);
+//        BlogSearchResultRes res = mapBlogSearchResultRes(result);
+
+        return new BlogSearchResultRes();
     }
 
     private BlogSearchResultRes mapBlogSearchResultRes(BlogSearchResultData blogSearchResultData) {

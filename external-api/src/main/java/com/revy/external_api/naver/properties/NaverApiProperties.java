@@ -1,4 +1,4 @@
-package com.revy.blog_search_client.naver.property;
+package com.revy.external_api.naver.properties;
 
 import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;

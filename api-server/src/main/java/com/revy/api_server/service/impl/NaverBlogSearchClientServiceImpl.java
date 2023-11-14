@@ -2,8 +2,8 @@ package com.revy.api_server.service.impl;
 
 import com.revy.api_server.service.BlogSearchClientService;
 import com.revy.api_server.service.data.BlogSearchResultData;
-import com.revy.blog_search_client.naver.NaverApiClient;
-import com.revy.blog_search_client.naver.res.NaverBlogSearchRes;
+import com.revy.external_api.naver.NaverApiClient;
+import com.revy.external_api.naver.res.NaverBlogSearchRes;
 import com.revy.core.enums.BlogSearchClientType;
 import com.revy.core.enums.BlogSort;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.revy.blog_search_client.naver.res;
+package com.revy.external_api.naver.res;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;

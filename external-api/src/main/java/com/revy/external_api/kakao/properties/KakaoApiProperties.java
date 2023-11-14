@@ -1,8 +1,7 @@
-package com.revy.blog_search_client.kakao.property;
+package com.revy.external_api.kakao.properties;
 
 import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.bind.ConstructorBinding;
 
 /**
  * Created by Revy on 2023.11.13

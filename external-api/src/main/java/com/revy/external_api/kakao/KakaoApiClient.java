@@ -1,14 +1,11 @@
-package com.revy.blog_search_client.kakao;
+package com.revy.external_api.kakao;
 
-import com.revy.blog_search_client.kakao.property.KakaoApiProperties;
-import com.revy.blog_search_client.kakao.res.KakaoBlogSearchRes;
-import com.revy.blog_search_client.naver.res.NaverBlogSearchRes;
+import com.revy.external_api.kakao.properties.KakaoApiProperties;
+import com.revy.external_api.kakao.res.KakaoBlogSearchRes;
 import com.revy.core.enums.BlogSort;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
-
-import java.util.List;
 
 /**
  * Created by Revy on 2023.11.13

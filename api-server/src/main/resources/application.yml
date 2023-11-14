@@ -4,6 +4,7 @@ spring:
     include:
       - domain
       - blog-search-client
+      - redis
 
 ---
 spring.config.activate.on-profile: local

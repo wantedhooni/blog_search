@@ -1,7 +1,7 @@
-package com.revy.blog_search_client.naver;
+package com.revy.external_api.naver;
 
-import com.revy.blog_search_client.naver.property.NaverApiProperties;
-import com.revy.blog_search_client.naver.res.NaverBlogSearchRes;
+import com.revy.external_api.naver.properties.NaverApiProperties;
+import com.revy.external_api.naver.res.NaverBlogSearchRes;
 import com.revy.core.enums.BlogSort;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

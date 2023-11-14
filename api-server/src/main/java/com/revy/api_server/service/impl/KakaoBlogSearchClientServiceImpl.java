@@ -2,8 +2,8 @@ package com.revy.api_server.service.impl;
 
 import com.revy.api_server.service.BlogSearchClientService;
 import com.revy.api_server.service.data.BlogSearchResultData;
-import com.revy.blog_search_client.kakao.KakaoApiClient;
-import com.revy.blog_search_client.kakao.res.KakaoBlogSearchRes;
+import com.revy.external_api.kakao.KakaoApiClient;
+import com.revy.external_api.kakao.res.KakaoBlogSearchRes;
 import com.revy.core.enums.BlogSearchClientType;
 import com.revy.core.enums.BlogSort;
 import lombok.RequiredArgsConstructor;

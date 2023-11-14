@@ -6,7 +6,7 @@ plugins {
 
 allprojects {
     group = 'com.revy'
-    version = '0.0.1-SNAPSHOT'
+    version = '0.0.1'
     sourceCompatibility = '21'
 
     repositories {
@@ -41,6 +41,9 @@ subprojects {
     }
     bootJar {
         enabled = false
+    }
+    jar {
+        enabled = true
     }
 
     tasks.named('test') {

@@ -1,7 +1,7 @@
 package com.revy.api_server.service.data;
 
 
-import com.revy.core.enums.BlogSort;
+import com.revy.core.enums.blog.BlogSort;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

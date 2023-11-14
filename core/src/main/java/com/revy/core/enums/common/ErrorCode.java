@@ -1,4 +1,4 @@
-package com.revy.api_server.exception.enums;
+package com.revy.core.enums.common;
 
 import lombok.Getter;
 

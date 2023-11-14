@@ -1,11 +1,16 @@
 package com.revy.external_api.kakao;
 
+import com.revy.core.enums.blog.BlogSort;
+import com.revy.external_api.kakao.exception.KakaoApi4xxException;
+import com.revy.external_api.kakao.exception.KakaoApi5xxException;
 import com.revy.external_api.kakao.properties.KakaoApiProperties;
+import com.revy.external_api.kakao.res.KakaoApiErrorRes;
 import com.revy.external_api.kakao.res.KakaoBlogSearchRes;
-import com.revy.core.enums.BlogSort;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 /**
  * Created by Revy on 2023.11.13
@@ -26,13 +31,6 @@ public class KakaoApiClient {
                 .build();
     }
 
-    /*
-query	String	검색을 원하는 질의어
-특정 블로그 글만 검색하고 싶은 경우, 블로그 url과 검색어를 공백(' ') 구분자로 넣을 수 있음	O
-sort	String	결과 문서 정렬 방식, accuracy(정확도순) 또는 recency(최신순), 기본 값 accuracy	X
-page	Integer	결과 페이지 번호, 1~50 사이의 값, 기본 값 1	X
-size	Integer	한 페이지에 보여질 문서 수, 1~50 사이의 값, 기본 값 10	X
-     */
     public KakaoBlogSearchRes searchBlog(String query, int size, int page, BlogSort blogSort) {
 
         return webClient.get()
@@ -44,12 +42,20 @@ size	Integer	한 페이지에 보여질 문서 수, 1~50 사이의 값, 기본 �
                                 .queryParam("sort", convertSortValue(blogSort))
                                 .build())
                 .retrieve()
+                .onStatus(HttpStatusCode::is4xxClientError, response -> {
+                    return response.bodyToMono(KakaoApiErrorRes.class)
+                            .flatMap(errorResponse -> Mono.error(new KakaoApi4xxException(errorResponse.getErrorType(), errorResponse.getErrorType())));
+                })
+                .onStatus(HttpStatusCode::is5xxServerError, response -> {
+                    return response.bodyToMono(KakaoApiErrorRes.class)
+                            .flatMap(errorResponse -> Mono.error(new KakaoApi5xxException(errorResponse.getErrorType(), errorResponse.getErrorType())));
+                })
                 .bodyToMono(KakaoBlogSearchRes.class)
                 .block();
     }
 
-    private String convertSortValue(BlogSort blogSort) {
 
+    private String convertSortValue(BlogSort blogSort) {
         return switch (blogSort) {
             case ACCURACY -> "accuracy";
             case RECENCY -> "recency";

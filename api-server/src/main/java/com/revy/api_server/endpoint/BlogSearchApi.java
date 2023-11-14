@@ -21,20 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class BlogSearchApi {
 
-    /*
-    1. 블로그 검색
-  - 키워드를 통해 블로그를 검색할 수 있어야 합니다.
-  - 검색 결과에서 Sorting(정확도순, 최신순) 기능을 지원해야 합니다.
-  - 검색 결과는 Pagination 형태로 제공해야 합니다.
-  - 검색 소스는 카카오 API의 키워드로 블로그 검색(https://developers.kakao.com/docs/latest/ko/daum-search/dev-guide#search-blog)을 활용합니다.
-  - 추후 카카오 API 이외에 새로운 검색 소스가 추가될 수 있음을 고려해야 합니다.
-     */
-
     private final BlogSearchService blogSearchService;
     private final BlogRankingService blogRankingService;
 
     @GetMapping
     public BlogSearchResultRes searchBlogs(@ModelAttribute @Valid BlogSearchReq req) {
+        log.debug("[searchBlogs] req:{}", req);
         blogRankingService.increaseCountAsync(req.getKeyword());
         BlogSearchConditionData condition = BlogSearchConditionData.builder()
                 .keyword(req.getKeyword())
@@ -42,11 +34,9 @@ public class BlogSearchApi {
                 .size(req.getSize())
                 .sort(req.getSort())
                 .build();
-        log.info("[getBlogs] req:{}", req);
-//        BlogSearchResultData result = blogSearchService.searchBlogs(condition);
-//        BlogSearchResultRes res = mapBlogSearchResultRes(result);
-
-        return new BlogSearchResultRes();
+        BlogSearchResultData result = blogSearchService.searchBlogs(condition);
+        BlogSearchResultRes res = mapBlogSearchResultRes(result);
+        return res;
     }
 
     private BlogSearchResultRes mapBlogSearchResultRes(BlogSearchResultData blogSearchResultData) {

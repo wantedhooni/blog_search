@@ -1,4 +1,4 @@
-package com.revy.core.enums;
+package com.revy.core.enums.blog;
 
 import lombok.Getter;
 

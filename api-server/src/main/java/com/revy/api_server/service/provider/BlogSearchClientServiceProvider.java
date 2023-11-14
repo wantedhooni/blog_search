@@ -1,8 +1,8 @@
 package com.revy.api_server.service.provider;
 
-import com.revy.api_server.exception.NotFoundServiceException;
 import com.revy.api_server.service.BlogSearchClientService;
-import com.revy.core.enums.BlogSearchClientType;
+import com.revy.core.enums.blog.BlogSearchClientType;
+import com.revy.core.exception.NotFoundServiceException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 
 /**
  * Created by Revy on 2023.11.13
+ * 블로그 검색 서비스 제공자
  */
 @Slf4j
 @Component

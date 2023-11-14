@@ -1,11 +1,15 @@
 package com.revy.external_api.naver;
 
+import com.revy.core.enums.blog.BlogSort;
+import com.revy.external_api.naver.exception.NaverApi4xxException;
 import com.revy.external_api.naver.properties.NaverApiProperties;
+import com.revy.external_api.naver.res.NaverApiErrorRes;
 import com.revy.external_api.naver.res.NaverBlogSearchRes;
-import com.revy.core.enums.BlogSort;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 /**
  * Created by Revy on 2023.11.13
@@ -24,15 +28,6 @@ public class NaverApiClient {
                 .build();
     }
 
-    /*
-    query	String	Y	검색어. UTF-8로 인코딩되어야 합니다.
-    display	Integer	N	한 번에 표시할 검색 결과 개수(기본값: 10, 최댓값: 100)
-    start	Integer	N	검색 시작 위치(기본값: 1, 최댓값: 1000)
-    sort	String	N	검색 결과 정렬 방법
-    - sim: 정확도순으로 내림차순 정렬(기본값)
-    - date: 날짜순으로 내림차순 정렬
-     */
-
     public NaverBlogSearchRes searchBlog(String query, int display, int start, BlogSort sort) {
         return webClient.get()
                 .uri(uriBuilder ->
@@ -43,15 +38,17 @@ public class NaverApiClient {
                                 .queryParam("sort", convertSortValue(sort))
                                 .build())
                 .retrieve()
+                .onStatus(HttpStatusCode::is4xxClientError, response -> {
+                    return response.bodyToMono(NaverApiErrorRes.class)
+                            .flatMap(errorResponse -> Mono.error(new NaverApi4xxException(errorResponse.getErrorCode(), errorResponse.getErrorMessage())));
+                })
+                .onStatus(HttpStatusCode::is5xxServerError, response -> {
+                    return response.bodyToMono(NaverApiErrorRes.class)
+                            .flatMap(errorResponse -> Mono.error(new NaverApi4xxException(errorResponse.getErrorCode(), errorResponse.getErrorMessage())));
+                })
                 .bodyToMono(NaverBlogSearchRes.class)
                 .block();
     }
-
-/*
-검색 결과 정렬 방법
-- sim: 정확도순으로 내림차순 정렬(기본값)
-- date: 날짜순으로 내림차순 정렬
-     */
 
     private String convertSortValue(BlogSort blogSort) {
         return switch (blogSort) {

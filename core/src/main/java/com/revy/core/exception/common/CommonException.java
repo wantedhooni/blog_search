@@ -1,4 +1,4 @@
-package com.revy.core.exception;
+package com.revy.core.exception.common;
 
 /**
  * Created by Revy on 2023.11.13

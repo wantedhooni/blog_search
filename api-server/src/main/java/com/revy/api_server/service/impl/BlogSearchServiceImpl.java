@@ -1,11 +1,11 @@
 package com.revy.api_server.service.impl;
 
-import com.revy.api_server.exception.InternalServerErrorException;
 import com.revy.api_server.service.BlogSearchService;
 import com.revy.api_server.service.data.BlogSearchConditionData;
 import com.revy.api_server.service.data.BlogSearchResultData;
 import com.revy.api_server.service.provider.BlogSearchClientServiceProvider;
-import com.revy.core.enums.BlogSearchClientType;
+import com.revy.core.enums.blog.BlogSearchClientType;
+import com.revy.core.exception.InternalServerErrorException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,6 @@ public class BlogSearchServiceImpl implements BlogSearchService {
         Assert.notNull(blogSearchConditionData, "blogSearchConditionData must be not null.");
         log.debug("blogSearchConditionData: {}", blogSearchConditionData);
         // BlogSearchClientType Enum 순서가 서비스 호출 우선순위이다.
-        // ENUM과 서비스 추가되면 자동적으로 로직이 적용된다.
         for (BlogSearchClientType clientType : BlogSearchClientType.values()) {
             try {
                 return blogSearchClientServiceProvider

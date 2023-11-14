@@ -35,7 +35,8 @@ public class BlogRankingApi {
         return new BlogPopularSearchesRes(resultList
                 .stream()
                 .map(result ->
-                        new BlogPopularSearchesRes.BlogPopularSearchesResData(result.getRank(), result.getKeyword(), result.getCount())
+                        new BlogPopularSearchesRes
+                                .BlogPopularSearchesResData(result.getRank(), result.getKeyword(), result.getCount())
                 ).toList()
         );
     }
